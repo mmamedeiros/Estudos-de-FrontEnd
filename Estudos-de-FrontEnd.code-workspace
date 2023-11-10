@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../Pogramation/desafios"
+		},
+		{
+			"path": "../../Pogramation/apps"
+		},
+		{
+			"path": "../../Pogramation/JavaScript"
+		},
+		{
+			"path": "../../Pogramation/features"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "apps"
+	}
+}
