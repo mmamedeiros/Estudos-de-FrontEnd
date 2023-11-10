@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AplicaçãoDeProva</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Ubuntu:wght@300;400&display=swap");
+      /* 
+font-family: 'Dela Gothic One', cursive;
+font-family: 'Ubuntu', sans-serif;
+*/
+      * {
+        list-style: none;
+        font-family: "Ubuntu", sans-serif;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #273459;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      main {
+        border-radius: 5px;
+        width: 60vw;
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+      }
+
+      h1 {
+        padding: 20px;
+        width: 100%;
+        height: 20%;
+        font-size: 75px;
+        text-align: center;
+      }
+
+      .terms {
+        width: 100%;
+        height: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        font-size: 35px;
+        padding: 40px 80px;
+      }
+
+      a,
+      label,
+      input {
+        margin-left: 50px;
+      }
+
+      a {
+        margin-left: 93px;
+      }
+
+      input {
+        margin-left: 105px;
+        height: 40px;
+
+        font-size: 25px;
+        text-align: center;
+      }
+
+      .btn {
+        background: #273459;
+        height: 60px;
+        width: 50%;
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Prova de Recuperação</h1>
+
+      <div class="terms">
+        <li>
+          <strong>Link de acesso: </strong><a href="">bit.ly/provaeniac</a>
+        </li>
+
+        <li>
+          <strong>CPF do Aplicador: </strong>
+          <label>32524182827</label>
+        </li>
+
+        <li>
+          <strong>Cód de acesso:</strong
+          ><input type="password" name="" id="pass" />
+        </li>
+      </div>
+      <div class="btn" onclick="mudar()"></div>
+    </main>
+
+    <script>
+      let pass = document.querySelector("#pass");
+      let btn = document.querySelector(".btn");
+
+      function mudar() {
+        let type = pass.type == "password";
+
+        if (type) {
+          // função executada caso let seja verdadeira
+          showPassword();
+        } else {
+          //função exec se o let for falso
+          hiddenPassword();
+        }
+      }
+
+      function showPassword() {
+        pass.setAttribute("type", "text");
+      }
+
+      function hiddenPassword() {
+        pass.setAttribute("type", "password");
+      }
+    </script>
+  </body>
+</html>

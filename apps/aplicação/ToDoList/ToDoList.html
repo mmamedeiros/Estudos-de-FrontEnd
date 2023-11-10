@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project - To do List</title>
+
+    <style>
+     *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+
+     }
+
+     .gradient{
+      width: 100vw;
+      height: 100vh;
+      display:  flex;
+      justify-content: center;
+      align-items: center;
+
+      /*FAZENDO O BACK COM UM GRADIENTE ANIMADO*/
+      background: linear-gradient(45deg, #190482, #7752FE, #8E8FFA, #C2D9FF);
+      background-size: 300% 300%;
+      animation: colors 15s ease infinite; /*15s é o tempo para execução EASE controla a veloricade e o infinito da o loop */
+
+     }
+
+     @keyframes colors{ /*COLORS é como o nome da função da animação*/
+      0%{
+        background-position: 0% 50%;
+      }
+
+      50%{
+        background-position:100% 50%;
+      }
+      100%{
+        background-position: 0% 50%;
+      }
+     }
+    </style>
+  </head>
+  <body class="gradient">
+    <main>
+      <h2>Lista de tarefas</h2>
+      <section id="add-area">
+        <input id="add-tarefa" placeholder="Digite a Tarefa"></input>
+      <button onclick="addBtn()">Add</button>
+      </section>
+
+      <section id="new-tarefa">
+        <ol id="to-do-list">
+            
+        </ol>
+      </section>
+      
+    </main>
+
+
+    <script>
+
+        const localStorageKey = 'to-do-list-gn'
+
+        function validateExist(){
+            let values = JSON.parse(localStorage.getItem(localStorageKey)|| "[]")
+            let taskValue = document.querySelector("#add-tarefa").value
+            let exist = values.find(x => x.name == taskValue)
+
+            return !exist? false:true
+
+        }
+        
+        function addBtn(){
+            let newTask = document.querySelector("#add-tarefa")
+            
+
+            
+            if(!newTask.value){ // VALIDAÇÃO
+                alert('digite uma tarefa')
+            }else if (validateExist()){
+                alert("essa tarefa já exite")
+            }
+            else{ // ICREMENT LOCAL STOREGE
+
+                let values = JSON.parse(localStorage.getItem(localStorageKey)|| "[]")
+                values.push({
+                    name: newTask.value
+                })
+
+                localStorage.setItem(localStorageKey, JSON.stringify(values))
+                showValues()
+            }
+
+            newTask.value = '' // limpa o campo
+        }
+
+        function showValues(){
+            let values = JSON.parse(localStorage.getItem(localStorageKey)|| "[]")
+            let list = document.querySelector("#to-do-list")
+            list.innerHTML = ''
+
+            for(let i = 0; i < values.length; i++){
+
+                list.innerHTML += `<li>${values[i]['name']}<button onclick='removeItem("${values[i]['name']}")'>ok</button></li>`
+            }
+        }
+
+        function removeItem(data){ // DATA é o parametro
+            let values = JSON.parse(localStorage.getItem(localStorageKey)|| "[]")
+            let index = values.findIndex(x => x.name == data ) // Procura na lista no nome que está igual ao parametro
+        
+            values.splice(index,1) //Deleta os valores da LocalStorege
+            localStorage.setItem(localStorageKey, JSON.stringify(values)) 
+            showValues()
+        }
+        showValues()// manter o valor mesmo que a lista recarregue 
+
+    </script>
+  </body>
+</html>

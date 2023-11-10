@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EstudosDOM</title>
+
+    <style>
+      div {
+        width: 90vw;
+        height: 8vh;
+        margin: 20px auto;
+        background: rgb(108, 108, 255);
+        padding-top: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Estudos Com DOM</h1>
+
+    <p>
+      manipulando meu site somente usando JavaScript, confessso que ja sei sobre
+      isso mas acho que tenho que melhora muito
+    </p>
+
+    <div id="a" onclick="clicar()" onmouseenter="entrou()" onmouseout="saiu()">
+      Click e tenha uma surpresa
+    </div>
+
+    <script>
+      // se a tag estiver no plural é necessário usar as []
+      var p1 = window.document.getElementsByTagName("p")[0];
+      p1.style.color = "blue";
+      var a = window.document.getElementById("a");
+
+      function clicar() {
+        a.innerText = "clicou";
+      }
+      function entrou() {
+        a.innerText = "entrou";
+      }
+      function saiu() {
+        a.innerText = "saiu";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Esconder/Mostrar Div</title>
+    <style>
+      .divParaEsconder {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <label for="mostrar">Mostrar Div:</label>
+    <input type="radio" id="mostrar" name="opcao" value="mostrar" />
+    <label for="esconder">Esconder Div:</label>
+    <input type="radio" id="esconder" name="opcao" value="esconder" />
+
+    <div class="divParaEsconder">
+      <p>Esta é a div que queremos esconder/mostrar.</p>
+    </div>
+
+    <script>
+      function alterarVisibilidade() {
+        var div = document.querySelector(".divParaEsconder"); //Div que vai esconder
+        var mostrarRadio = document.getElementById("mostrar"); // radio que corresponde a mostra a div
+
+        if (mostrarRadio.checked) {
+          div.style.display = "block"; // condição para aparecer
+        } else {
+          div.style.display = "none";
+        }
+      }
+
+      var radios = document.querySelectorAll("input[type=radio]"); // Código para ouvir toda vez que o input mudar
+      radios.forEach(function (radio) {
+        // Foreach pega para cada radio
+        radio.addEventListener("change", alterarVisibilidade);
+      });
+    </script>
+  </body>
+</html>

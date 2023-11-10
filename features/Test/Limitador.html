@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Test de limitação de texto</h2>
+
+    <form>
+      <!-- oninput é acionado toda vez que o valor do campo é alterado, seja por digitação, colagem ou outras formas de entrada -->
+      <!-- O oninput chama a função contarCaracteres criada no JavaScript para contar a quantidade de caracteres-->
+      <label>mensagem:</label>
+      <textarea
+        name="mensagem"
+        rows="5"
+        cols="30"
+        id="mensagem"
+        placeholder="Mensagem de contado com no máximo 120 caracteres"
+        oninput="contarCaracteres()"
+      ></textarea
+      ><br />
+
+      Quantidade de caracteres digitados: <span id="contador">0</span>
+    </form>
+
+    <script>
+      // Função para contar a quantidade de caracteres
+      function contarCaracteres() {
+        //Variável de limite de caracteres
+        const limiteCaracteres = 20;
+
+        //Chamando o campo de texto
+        var mensagem = document.getElementById("mensagem");
+
+        // Recuperar o conteúdo do campo "mensagem"
+        // value - valor que o campo possui
+        var mensagemConteudo = mensagem.value;
+
+        //Condição de limitação de caracteres
+        if (mensagemConteudo.lenght > limiteCaracteres) {
+          // Enviar para o campo mensagem somente os primeiros 120 caracteres
+          // mensagemConteudo - POssui o valor atual do campo de texto
+          // A função slice() permite extrair uma parte da string com base nos índices especificados. No exemplo, é utilizado o intervalo de 0 a 120.
+          mensagem.value = mensagemConteudo.slice(0, limiteCaracteres);
+        }
+
+        document.getElementById("contador").textContent = mensagem.value.length;
+      }
+    </script>
+  </body>
+</html>

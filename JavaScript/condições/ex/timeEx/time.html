@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        background: rgb(205, 124, 58);
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      h1,
+      footer {
+        color: #fff;
+        margin: 20px;
+      }
+
+      h1 {
+        margin-top: 60px;
+      }
+
+      main {
+        border-radius: 20px;
+        text-align: center;
+        background: #fff;
+        color: #111;
+        width: 50vw;
+        height: 60vh;
+        padding: 15px;
+      }
+
+      img {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+      }
+
+      main > h3 {
+        height: 10%;
+      }
+    </style>
+  </head>
+  <body onload="tempo()">
+    <h1 id="title">Agora é de tarde</h1>
+    <main>
+      <h3 id="hour">Agora são 9 horas</h3>
+      <img src="/condições/ex/timeEx/img/tarde.jpg" alt="" id="img" />
+    </main>
+
+    <footer>@TesteDeJavaScript</footer>
+
+    <script>
+      function tempo() {
+        var ti = document.getElementById("title");
+        var msg = document.getElementById("hour");
+        var img = document.getElementById("img");
+
+        var data = new Date();
+        var hora = data.getHours();
+
+        msg.innerHTML = ` Agora são ${hora} horas`;
+
+        if (hora >= 0 && hora <= 12) {
+          //BOM DIA
+
+          ti.innerHTML = "Agora é de manhã";
+          img.src = "/condições/ex/timeEx/img/manha.jpg";
+          document.body.style.background = "rgb(181, 192, 249)";
+        } else if (hora > 12 && hora <= 18) {
+          //BOA TARDE
+
+          ti.innerHTML = "Agora é de tarde";
+          img.src = "/condições/ex/timeEx/img/tarde.jpg";
+          document.body.style.background = "rgb(205, 124, 58)";
+        } else {
+          // BOA NOITE
+
+          ti.innerHTML = "Agora é de noite";
+          img.src = "/condições/ex/timeEx/img/noite.jpg";
+          document.body.style.background = "rgb(7, 21, 70)";
+        }
+      }
+    </script>
+  </body>
+</html>

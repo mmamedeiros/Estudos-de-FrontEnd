@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <h3>Gasto calórico</h3>
+
+      <div class="valor">
+        <label for="peso">Peso(Kg):</label>
+        <input type="text" name="" id="peso" />
+        <button onclick="cal()"></button>
+      </div>
+      <div id="result"></div>
+    </main>
+
+    <script>
+      function cal() {
+        let peso = parseFloat(document.getElementById("peso").value); // pegou valor do input
+        let res = document.getElementById("result"); // area que será colocada o resultado
+
+        let cont = (0.063 * peso + 2.896) * 239;
+
+        res.innerText = `Você deve comer ${cont}Kcal por dia`;
+      }
+    </script>
+  </body>
+</html>

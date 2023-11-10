@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mudar senha</title>
+  </head>
+  <body>
+    <input type="password" name="" id="pass" />
+    <div class="btn" onclick="mudar()">mudar</div>
+
+    <script>
+      let pass = document.querySelector("#pass");
+      let btn = document.querySelector(".btn");
+
+      function mudar() {
+        let type = pass.type == "password";
+
+        if (type) {
+          // função executada caso let seja verdadeira
+          showPassword();
+        } else {
+          //função exec se o let for falso
+          hiddenPassword();
+        }
+      }
+
+      function showPassword() {
+        pass.setAttribute("type", "text");
+      }
+
+      function hiddenPassword() {
+        pass.setAttribute("type", "password");
+      }
+    </script>
+  </body>
+</html>

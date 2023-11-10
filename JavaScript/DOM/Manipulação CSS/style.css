@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.light {
+  background-color: rgb(156, 228, 228);
+  color: #fff;
+
+  transition: 0.3s;
+}
+
+.dark {
+  background-color: rgb(136, 0, 0);
+  color: #111;
+  transition: 0.3s;
+}
+header {
+  width: 100vw;
+  height: 5vh;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px 10px;
+  background-color: rgb(78, 146, 146);
+}
+
+main {
+  width: 100vw;
+  height: 100%;
+}
+
+img {
+  width: 250px;
+}
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  padding: 10px 80px;
+}
+
+.text h1 {
+  padding: 20px;
+}
