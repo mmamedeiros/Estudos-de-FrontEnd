@@ -40,12 +40,13 @@
             height: 60vh;
 
             display: flex;
-            align-items: center;
             flex-direction: column;
             justify-content: center;
-
+            align-items: center;
+        
             margin: 15px;
-            padding: 15px;
+            padding: 20px;
+           
             background: #fff;
             border-radius: 25px;
             box-shadow: 9px 9px  1px 1px #111;
@@ -58,45 +59,76 @@
             font-weight: 200;
             color:  rgba(252,176,69,1) ;
         }
+
+        section{
+            width: 100%;
+            margin: 20px 0px;
+            justify-content: space-around;
+            display: flex;
+
+        }
+        input{
+            width: 50px;
+            height: 25px;
+            border: 1px solid #11111177;
+            border-radius: 5px;
+        }
+
+        button{
+            width: 50%;
+            height: 45px;
+
+            margin: 15px;
+            padding: 5px;
+            border: none;
+            background: rgba(98, 41, 204, 0.986);
+            border-radius: 15px;
+            box-shadow: 1px 1px  1px 1px #111;
+            border-bottom: #000000 solid;
+            border-right: #000000 solid;
+
+            color: #fff;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+   
     </style>
 </head>
 <body>
     <h1>CONTADOR</h1>
     <main>
-        <section>
-            <label for="" id="inico">Início:</label>
-            <input type="number">
-            <br>
-            <label for="" id="fim">Fim:</label>
-            <input type="number">
-            <br>
-            <label for="" id="passos">Início:</label>
-            <input type="number"> 
-            <br>
-            <button onclick="contar()">Contar</button>
-        </section>
-
-        <section>
-            <h3>Contador</h3>
-            <div id="mostrandoContagem "></div>
-        </section>
+   
+        <section>     
+            <P>START: <input type="number" name="start" id="start"></P>
+            <p>AND: <input type="number" name="and" id="and"></p>
+            <p>STEPS: <input type="number" name="steps" id="steps"></p></section>
+        <button onclick="countNumbers()">Count</button>
+        <div class="countArea">
+            Count process
+        </div>
     </main>
     <footer>@projetosMatheus</footer>
 
     <script>
-        let inico = document.querySelector("#inicio");
-        let fim = document.querySelector("#fim");
-        let passo = document.querySelector("#passos");
-        let div = document.querySelector("#div");
+        function countNumbers(){
+            let start = document.querySelector('#start');
+            let and = document.querySelector('#and');
+            let steps = document.querySelector('#steps');
 
-        function contar(){
+            if(start.value == 0 || and.value == 0 || steps.value == 0){
+                alert("check that all data is filled in");
+            } else{
+                let area = document.querySelector('#countArea')
+                let s = start.value;
+                let a = and.value;
+                let p = steps.value;
 
-            while(inico <= fim){
-            div.innerHTML = "test"
+                for(c = s; c <= a; c += p){
+                    area.innerHTML = `${c}`
+                }
+            }
         }
-        
-        }
-  
     </script>
 </body>
 </html>
