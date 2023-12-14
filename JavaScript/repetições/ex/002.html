@@ -65,6 +65,7 @@
             margin: 20px 0px;
             justify-content: space-around;
             display: flex;
+            flex-direction: column;
 
         }
         input{
@@ -100,49 +101,36 @@
     <main>
    
         <section>     
-            <P>START: <input type="number" name="start" id="start"></P>
-            <p>AND: <input type="number" name="and" id="and"></p>
-            <p>STEPS: <input type="number" name="steps" id="steps"></p></section>
-        <button onclick="countNumbers()">Count</button>
-        <div id="countArea">
-            Count processing....
+          <p>Number <input type="number" name="" id="number">
+          <input type="button" value="gerar" onclick="countNumbers()"></p>
+
+        <div>
+            <select name="tabuada" id="seltap" size="10"></select>
         </div>
     </main>
     <footer>@projetosMatheus</footer>
 
     <script>
         function countNumbers(){
-            let start = document.querySelector("#start");
-            let and = document.querySelector("#and");
-            let steps = document.querySelector("#steps");
-            let res = document.querySelector("#countArea");
+            let number = document.querySelector("#number");
+            let tab = document.querySelector("#seltap");
+           
 
-            if(start.value.length == 0 || and.value.length == 0 || steps.value.length == 0 ){
-                alert("falta dados");
+            if(number.value.lenght == 0){
+                alert("falta de dados")
             }else{
-                res.innerHTML = "counting";
-                let i = Number(start.value);
-                let f = Number(and.value);
-                let p = Number(steps.value);
-                if(p == 0){
-                    alert("passo invalido");
-                }else{
+                let n = Number(number.value);
+                let c = 1
 
-                if( i < f ){
-                    for(let c = i; c<= f; c+= p){
-                        res.innerHTML += `${c}-`;
-                     
-                    };
-                }else{
-                    for(let c = i; c>= f; c-= p){
-                        res.innerHTML += `${c}-`;
-
-                    };
+                tab.innerHTML = ``
+                while (c<= 10){
+                    let item = document.createElement('option');
+                    item.text = `${n} x ${c} = ${n*c}`
+                    tab.appendChild(item)
+                    c++
                 }
+            }
 
-                res.innerHTML += "and";
-            };
-        };
         };
     </script>
 </body>
